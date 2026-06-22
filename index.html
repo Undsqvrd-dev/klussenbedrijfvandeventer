@@ -822,14 +822,13 @@
     #contact { background: var(--card-alt); border-top: 1px solid var(--border); }
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.62fr) minmax(260px, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
       gap: clamp(2.25rem, 4.5vw, 4rem);
       align-items: start;
     }
     @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 2.75rem; } }
 
     .contact-main .section-sub { max-width: 36em; margin-top: 1rem; }
-    .contact-main form { margin-top: clamp(1.35rem, 3vh, 2rem); }
 
     .contact-info-items {
       display: flex;
@@ -860,29 +859,6 @@
     .contact-item-val { font-size: 0.92rem; font-weight: 600; }
     .contact-item-lines { line-height: 1.5; font-weight: 600; font-size: 0.88rem; }
     .contact-item-lines strong { font-weight: 700; font-size: 0.92rem; }
-
-    form { display: flex; flex-direction: column; gap: 1.1rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-group { display: flex; flex-direction: column; }
-    label.form-label { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.35rem; }
-
-    input, textarea, select {
-      width: 100%;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--black);
-      font-family: var(--font);
-      font-size: 0.93rem;
-      padding: 0.85rem 1.1rem;
-      outline: none;
-      transition: border-color 0.2s;
-      -webkit-appearance: none;
-    }
-    input::placeholder, textarea::placeholder { color: var(--muted); }
-    input:focus, textarea:focus, select:focus { border-color: var(--accent); }
-    textarea { resize: vertical; min-height: clamp(64px, 12vh, 120px); }
-    select option { background: var(--card); color: var(--black); }
 
     /* ── FOOTER ── */
     footer {
@@ -917,8 +893,6 @@
       .senioren-visual-tagline { font-size: 0.95rem; padding: 0.85rem 0.85rem 1rem; }
       .over-list { margin-top: 1rem !important; gap: 0.4rem !important; }
       .contact-grid { gap: 1.75rem !important; }
-      form { gap: 0.5rem !important; }
-      input, textarea, select { padding: 0.65rem 0.95rem !important; font-size: 0.9rem !important; }
       .garantie-banner { padding: 0.9rem 1rem !important; }
     }
     @media (min-width: 992px) and (max-height: 900px) {
@@ -929,7 +903,6 @@
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .form-row { grid-template-columns: 1fr; }
       .garantie-banner { padding: 0.95rem 1.05rem; }
       section.viewport-section {
         min-height: unset;
@@ -1248,7 +1221,7 @@
     <div class="step-item">
       <div class="step-num">01</div>
       <h3>Bel of mail mij</h3>
-      <p>Neem vrijblijvend contact op per telefoon, e-mail of het formulier. Ik reageer zo snel als het kan.</p>
+      <p>Neem vrijblijvend contact op per telefoon of e-mail. Ik reageer zo snel als het kan.</p>
     </div>
     <div class="step-item">
       <div class="step-num">02</div>
@@ -1279,50 +1252,6 @@
       <p class="section-sub contact-intro-copy">
         Twijfelt u of ik iets voor u kan betekenen? Neem gerust contact op — ik denk graag mee en geef eerlijk advies.
       </p>
-      <form onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Voornaam</label>
-            <input type="text" placeholder="Jan" required />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Achternaam</label>
-            <input type="text" placeholder="Janssen" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">E-mailadres</label>
-          <input type="email" placeholder="jan@voorbeeld.nl" required />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Telefoonnummer</label>
-          <input type="tel" placeholder="06 104 36 140 of 055 542 66 79" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Type klus</label>
-          <select>
-            <option value="">Kies een categorie...</option>
-            <option>Badkamermeubels</option>
-            <option>Douchecabines</option>
-            <option>Toiletpotten</option>
-            <option>WC-brillen</option>
-            <option>Verlichting</option>
-            <option>Keukenapparatuur</option>
-            <option>Quookers</option>
-            <option>Kranen</option>
-            <option>Doorlopende toiletten</option>
-            <option>Keukendeuren stellen</option>
-            <option>Kleine klussen in en rondom huis</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Omschrijving van uw klus</label>
-          <textarea placeholder="Beschrijf kort wat u nodig heeft (bij voorkeur met afmetingen of merken). Hoe meer context, hoe scherper ik uw vraag kan inschatten."></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:1rem 2rem;">
-          Contact aanvragen →
-        </button>
-      </form>
     </div>
     <aside class="contact-aside fade-in" aria-labelledby="contact-gegevens-heading">
       <p id="contact-gegevens-heading" class="section-label contact-aside-label">// contactgegevens</p>
@@ -1391,14 +1320,6 @@
     document.getElementById('topnav').style.boxShadow =
       window.scrollY > 20 ? '0 4px 28px rgba(215,54,18,0.14)' : 'none';
   });
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type="submit"]');
-    btn.textContent = '✓ Aanvraag verstuurd — ik neem snel contact met u op!';
-    btn.style.background = '#22c55e';
-    btn.disabled = true;
-  }
 
   (function initWerkCarousel() {
     const root = document.querySelector('[data-werk-carousel]');
